@@ -67,7 +67,7 @@ window.initMap = () => {
 //Función de asincrónica que trae los markers
 const fetchMarkers = async (map) => { 
     try {
-        const response = await fetch('https://prog3-gv-tp2-backend.now.sh/tiendas');
+        const response = await fetch('assets/js/markers.json');
         const json = await response.json();
         json.forEach(marker => {
             addMarker(map, marker);
@@ -86,14 +86,14 @@ const addMarker = (map, marker) => {
     //Armo la infowindow
     const contentString = `
     <div class="divInfo">
-    <div class="divInfoContainer">
-    <h2 class="divInfoElements">${name}</h2>
-    <h3 class="divInfoElements">${type} - ${veg}</h3>
-    <p class="divInfoElements">${description}</p>
-    <p class="divInfoElements">${number}</p>
-    <p class="divInfoElements">${horarioAtencion}</p>
-    <p class="divInfoElements">Envíos a domicilio: ${delivery}</p>
-    <p class="divInfoElements">${redes}</p>
+        <div class="divInfoContainer">
+            <h2 class="divInfoElements">${name}</h2>
+            <h3 class="divInfoElements infoType">${type} - ${veg}</h3>
+            <p class="divInfoElements">${description}</p>
+            <p class="divInfoElements">${number}</p>
+            <p class="divInfoElements">Horario de atención: ${horarioAtencion}</p>
+            <p class="divInfoElements">Envíos a domicilio: ${delivery}</p>
+            <p class="divInfoElements infoRedes">${redes}</p>
     </div>
     </div>`;
     const infowindow = new google.maps.InfoWindow({
@@ -111,8 +111,9 @@ const addMarker = (map, marker) => {
     //Agrego el marker
     const markerItem = new google.maps.Marker(
         {
-            position: { lat: parseFloat(lat), lng: parseFloat(lng) },
+            position: { lat: lat, lng: lng },
             icon: icons[type],
+            //scale:20,
             map: map,
             customInfo: type
         }

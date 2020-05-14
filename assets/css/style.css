@@ -115,8 +115,11 @@ body {
 
 .divInfo h2 {
 
-	font-size: 1.3em;
+	margin-bottom: 1.5%;
+    border-bottom-width: thick;
+    font-size: 1.3em;
     font-weight: 600;
+    border-bottom: 3px solid black;
 }
 
 .divInfo h3 {
@@ -133,4 +136,10 @@ body {
 .infoRedes {
 
 	font-weight: 700;
+	font-size:1.1em;
+}
+
+.infoType {
+
+	text-transform: capitalize;
 }
