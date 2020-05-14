@@ -87,8 +87,10 @@ const addMarker = (map, marker) => {
     const contentString = `
     <div class="divInfo">
         <div class="divInfoContainer">
-            <h2 class="divInfoElements">${name}</h2>
-            <h3 class="divInfoElements infoType">${type} - ${veg}</h3>
+            <div>
+                <span class="divInfoElements spanTitulo">${name}</span>
+                <span class="divInfoElements infoType">${type} - ${veg}</span>
+            </div>
             <p class="divInfoElements">${description}</p>
             <p class="divInfoElements">${number}</p>
             <p class="divInfoElements">Horario de atención: ${horarioAtencion}</p>

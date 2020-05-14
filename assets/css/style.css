@@ -49,6 +49,8 @@ table {
 
 /*---------------------------------------------------------------------- FIN RESET CSS ----------------------------------------------------------------------*/
 
+
+/* GENERALES */
 body { 
 	padding:0;
 	margin:0; 
@@ -59,34 +61,43 @@ body {
 	height: 100vh;
 }
 
+/* HEADER */
+
 #menu {
 
 	position: absolute;
     top: 0;
     left: 0;
-    padding: 1em 0.7em 0.5em 1em;
-	background-color: /*#6A5ACD;#98c756 verde*/black;
-	/*filter:saturate(0.5);*/
-	opacity: 0.8;
-    width: 45%;
+    /* padding: 1em 0.7em 0.5em 1em; */
+    background-color: /*#6A5ACD;#98c756 verde*/black;
+    /* filter: saturate(0.5); */
+    opacity: 0.8;
+    width: 100%;
+    height: 8vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-radius: 0em 0em 1em 0em;
 
 }
 
-#menu a img {
+.divContainer {
 
-	padding: 0em 1em 0em 0.5em;
-	opacity: 0.7;
-	width: 2em;
-	filter:saturate(1.5);
+	width: 47.5%;
+	height: 100%;
+	display: flex;
 }
 
-#menu a img:hover {
+.divContainer:nth-child(2n) {
 
-	opacity: 1;
+	text-align: center;
+	
+}
+
+.divContainer:nth-child(2n) a {
+
+	height: 100%;
+	align-items: center;
+    display: flex;
 }
 
 .titulo {
@@ -102,28 +113,93 @@ body {
 	/*letter-spacing: 0.02em;*/
 }
 
-.divContainer {
+.todo {
 
-	/*width: 100%;*/
-	padding: 0em 0em 0.8em 0em;
+	color: white;
+    font-family: 'Capriola', sans-serif;
+	text-decoration: none;
+	padding-right: 1.05em;
 }
+
+ 
+
+#menu a img {
+
+	padding: 0em 1em 0em 0.5em;
+	opacity: 0.7;
+	width: 2em;
+	filter:saturate(1.5);
+}
+
+#menu a img:hover {
+
+	opacity: 1;
+}
+
+.infoHover {
+
+	position: relative;
+}
+
+
+.infoHover .hoverText {
+
+	visibility: hidden;
+  	width: 120px;
+  	background-color: rgb(0, 0, 0, 0.6);
+  	color: #fff;
+  	text-align: center;
+  	border-radius: 6px;
+	padding: 5px 0;
+	font-family: 'Capriola', sans-serif;
+	font-size: 0.8em;
+
+  	/* Position the tooltip */
+  	position: absolute;
+	z-index: 1;
+	top: 90%;
+	left: -2.5em;
+}
+
+.infoHover:hover .hoverText {
+	visibility: visible;
+}
+/* SETTINGS */
+
+.settings  {
+
+	width: 5%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.settings img {
+
+	height: 2em;
+	filter: invert(10);
+	opacity: 0.8;
+	
+}
+
+/* DIV INFO */
 
 .divInfo {
 
 	width:22em;
 }
 
-.divInfo h2 {
+.divInfo .spanTitulo {
 
-	margin-bottom: 1.5%;
     border-bottom-width: thick;
     font-size: 1.3em;
-    font-weight: 600;
-    border-bottom: 3px solid black;
-}
+	font-weight: 600;
 
-.divInfo h3 {
-	font-style: italic;
+	/*Border bottom style*/
+	border-bottom-style: 3px;
+	border-bottom-style: solid;
+	border-bottom-style: inset;
+  	border-bottom-color: #98c756;
 }
 
 .divInfoElements {
@@ -142,4 +218,9 @@ body {
 .infoType {
 
 	text-transform: capitalize;
+	font-style: italic;
+	display: block;
+	padding:1em 0em 1em 0em;
 }
+
+
