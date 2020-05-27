@@ -1,5 +1,4 @@
-//logica del dashboard;
-
+//Elementos del DOM;
 const $listado = document.querySelector('#listado');
 const $form_field_lat = document.querySelector('#form_field_lat');
 const $form_field_lng = document.querySelector('#form_field_lng');
@@ -11,7 +10,34 @@ const $form_field_number = document.querySelector('#form_field_number');
 const $form_field_horarioAtencion = document.querySelector('#form_field_horarioAtencion');
 const $form_field_delivery = document.querySelector('#form_field_delivery');
 const $form_field_redes = document.querySelector('#form_field_redes');
+const $form_field_id = document.querySelector('#form_field_id');
+const $form_main = document.querySelector('#form_main');
 
+
+const getTiendas = async (id = '') => {
+    const result = await api.getTiendas();
+    console.log(result);
+    if (id == '') { //Cuando la llama el document ready;
+        $listado.innherHTML = '';
+        result.forEach(element => {
+            $listado.innerHTML += dataRow(element)
+        });
+
+        //Nuevos EventListeners para incluir los nuevos elementos del DOM;
+        const $btnsDelete = document.querySelectorAll('.handleDelete');
+        $btnsDelete.forEach(element => {
+            element.addEventListener('click', handleClickDelete)
+        });
+        const $btnsEdit = document.querySelectorAll('.handleEdit');
+        $btnsEdit.forEach(element => {
+            element.addEventListener('click', handleClickEdit)
+        });
+
+    } else { //Cuando la llamo con un id desde edit. Para hacer una busqueda x id;
+        const elementById = result.find((el) => id == el._id);
+        return elementById;
+    }
+}
 
 const dataRow = props => {
 
@@ -19,7 +45,7 @@ const dataRow = props => {
     return `
         <div class="item">
             <div class="listado_content">
-                <h2 >${name}</h2>
+                <h2 class="dashboardElements">${name}</h2>
             </div>
 
             <div class="btns_wrapper">
@@ -31,59 +57,70 @@ const dataRow = props => {
 
 }
 
-const getTiendas = async (id = '') => {
-    const result = await api.getTiendas();
-    console.log(result);
-    if (id == '') { //Cuando la llama el document ready;
-        $listado.innherHTML = " ";
-        result.forEach(element => {
-            $listado.innerHTML += dataRow(element)
-        });
-    } else { //Cuando la llamo con un id desde edit;
-        const elementById = result.find((el) => id == el._id);
-        return elementById;
-    }
+
+
+getTiendas(); //Llamo a la funcion cuando carga la pag;
+
+//DELETE;
+const deleteTienda = async (id) => {
+    const result = await api.deleteTiendas(id);
+    console.log('Deleted', result);
+    getTiendas();
+}
+const handleClickDelete = async () => {
+    const id = event.target.dataset.id;
+    deleteTienda(id);
 }
 
-getTiendas();
+//UPDATE;
+const updateTienda = async (data,id) => {
+    const result = await api.updateTiendas(data,id);
+    console.log('Updated', result)
+    getTiendas();
+}
+const handleClickEdit = async () => {
+    const id = event.target.dataset.id;
+    const reg = await getTiendas(id);
+    completeForm(reg);
+}
+const completeForm = (reg) => {
+    const {_id, lat, lng, name, veg, type, description, number, horarioAtencion, delivery, redes } = reg;
+    $form_field_id.value= id;
+    $form_field_lat.value = lat;
+    $form_field_lng.value = lng;
+    $form_field_name.value = name;
+    $form_field_veg.value = veg;
+    $form_field_type.value = type; 
+    $form_field_description.value = description;
+    $form_field_number.value = number;
+    $form_field_horarioAtencion.value = horarioAtencion;
+    $form_field_delivery.value = delivery;
+    $form_field_redes.value = redes;
+}
 
-const deleteTienda = async (id) => {
-    const result = await api.deleteTienda(id);
-    console.log('Deleted');
+//CREATE;
+const createTienda = async (data) => {
+    const result = await api.createTIendas(data);
+    console.log('Created', result);
     getTiendas();
 }
 
-const completeForm = (reg) => {
-    const {lat, lng, name, veg, type, description, number, horarioAtencion, delivery, redes } = reg;
-    $form_field_lat.value = lat
-    $form_field_lng.value = lng
-    $form_field_name.value = name
-    $form_field_veg.value = veg 
-    $form_field_type.value = type; 
-    $form_field_description.value = description
-    $form_field_number.value = number
-    $form_field_horarioAtencion.value = horarioAtencion
-    $form_field_delivery.value = delivery
-    $form_field_redes.value = redes
-}
-
-// Handlers;
-document.addEventListener('click', async function () {
+//FORM (Update o Create);
+$form_main.addEventListener('submit', (event) => {
     event.preventDefault();
-    //Handle Delete;
-    if (event.target.matches('.handleDelete')) {
-        const id = event.target.dataset.id;
-        console.log('clickeado el delete de id' + id);
-        deleteTienda(id);
+    const id = $form_field_id.value;
+    const formData =  {
+        "lat": $form_field_lat.value,
+        "lng": $form_field_lng.value,
+        "name": $form_field_name.value,
+        "veg": $form_field_veg.value,
+        "type": $form_field_type.value,
+        "description": $form_field_description.value,
+        "number": $form_field_number.value,
+        "horarioAtencio": $form_field_horarioAtencion.value,
+        "delivery": $form_field_delivery.value,
+        "redes": $form_field_redes.value,
+        "id": $form_field_id.value
     }
-
-    //Handle Edit;
-    if (event.target.matches('.handleEdit')) {
-        const id = event.target.dataset.id;
-        console.log('clickeado el edit de id' + id);
-        const reg = await getTiendas(id);
-        console.log(reg);
-        completeForm(reg);
-
-    }
-}, false)
+    updateTienda(formData,id);
+});

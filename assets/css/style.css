@@ -221,31 +221,30 @@ body {
 
 
 /*-------------------- INDEX ADMIN --------------------*/
+header {
 
-/*#wrapper {
-	padding:60px 0 40px;
+	background-color: black;
+	display:flex;
+	color:white;
+
 }
 
-.adminTitulos {
+.headerAdmin {
 
-	font-size: 3em;
+	font-size: 1.2em;
+    font-weight: 300;
+    color: white;
+    padding: 1.3em 0em 1em 0em;
+	padding-left: 0.7em;
+	font-family: 'Capriola', sans-serif;
+	width: 33%;
 }
 
-.btn {
-	padding:10px 20px;
-	border-radius: 90px;
-	color:#fff;
-	text-decoration: none;
+#inner {
+
+	width: 95%;
+	margin:0 auto;
 }
-
-a {
-	font-weight: 700;
-}
-
-a:hover {
-
-	opacity: .8;
-}*/
 
 
 .item {
@@ -254,6 +253,12 @@ a:hover {
 	margin: 0 auto;
 	display: flex;
 	padding-bottom:3em;
+}
+
+.dashboardElements {
+
+	font-weight: 700;
+	font-size:1.2em;
 }
 
 .listado_content {
@@ -274,7 +279,12 @@ a:hover {
     font-family: 'Capriola', sans-serif;
     color: white;
     font-size: 1.2em;
-    padding: 0.7em;
+    padding: 0.5em 0.7em 0.5em 0.7em;
+}
+
+.btn:hover {
+
+	opacity: 0.8;
 }
 
 .verde {
@@ -285,4 +295,5 @@ a:hover {
 .rojo {
 
 	background-color: tomato;
+	margin-left: 2em;
 }
