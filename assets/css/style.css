@@ -354,32 +354,42 @@ body {
 #form_wrapper {
 
 	margin: 0 auto;
-	width: 50%;
+	width: 35%;
 	font-family: 'Roboto', sans-serif;
-	padding-top: 5em;
-}
-
-#formL {
-
-	width:45%;
-	display:inline-block;
-	padding: 0 0 2em 0;
-}
-
-#formR {
-
-	width:45%;
-	display:inline-block;
-	padding: 0 0 2em 0;
+	padding-top: 2em;
 }
 
 .inputDiv {
 
 	display:block;
+	padding-top: 0.5em;
+}
+
+.sectionForm {
+
+	padding-bottom:2em;
+}
+
+.titleSectionForm {
+
+	font-weight: 900;
+	font-size: 1.1em;
+}
+
+.labels {
+
+	font-size: 1em;
+    padding-bottom: 0.3em;
+    display: block;
+    font-weight: 500;
 }
 
 #form_main {
 	display: none;
+	background-color: rgb(226, 226, 226);
+	box-shadow: 0.5em 0.5em rgba(209, 209, 209, 0.85);
+	padding: 1em;
+	border-radius: 1em;
 }
 
 #form_main.active {
@@ -391,3 +401,4 @@ body {
 	display: block;
     padding: 1em 5em 1em 5em;
 }
+
