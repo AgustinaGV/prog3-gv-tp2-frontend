@@ -44,9 +44,9 @@ table {
 
 /*---------------------------------------------------------------------- FIN RESET CSS ----------------------------------------------------------------------*/
 
-/*-------------------- INDEX MAPS --------------------*/
+/*---------------------------------------- INDEX MAPS ----------------------------------------*/
 
-/* GENERALES */
+/*-------------- GENERALES --------------*/
 body { 
 	padding:0;
 	margin:0; 
@@ -57,53 +57,74 @@ body {
 	height: 100vh;
 }
 
-/* HEADER */
+/*-------------- HEADER --------------*/
 
 #menu {
 
 	position: absolute;
     top: 0;
-    left: 0;
-    /* padding: 1em 0.7em 0.5em 1em; */
     background-color: /*#6A5ACD;#98c756 verde*/black;
-    /* filter: saturate(0.5); */
-    opacity: 0.8;
+    /* filter: saturate(0.5); 
+    opacity: 0.8;*/
     width: 100%;
-    height: 8vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
+	/*height: 4em;*/
+	padding: 1.3em 0em 1em 0em;
+	display: flex;
+	align-items: center;
 }
+
+/* GENERALES DIVS CONTENEDORES*/
 
 .divContainer {
 
-	width: 47.5%;
-	height: 100%;
-	display: flex;
+    display: inline-flex;
 }
+
+/* TITULO */
+
+.divContainer:first-child {
+
+	width: 33%;
+}
+
+/* FILTROS */
 
 .divContainer:nth-child(2n) {
 
-	text-align: center;
-	
+	justify-content: center;
+	width: 33%;
 }
+
 
 .divContainer:nth-child(2n) a {
 
-	height: 100%;
 	align-items: center;
-    display: flex;
+	display: flex;
+}
+
+/* DIV SETTINGS*/
+
+.divContainer:nth-child(3n) {
+
+	justify-content: flex-end;
+	width: 33%;
+	
+}
+
+.divContainer:nth-child(3n) img {
+
+	filter: invert(10);
+	opacity: 0.8;
+	padding-right: 2em;
 }
 
 .titulo {
 
 	/*font-family: 'Archivo Black', sans-serif; archivo black*/
 	font-family: 'Capriola', sans-serif;/* capriola*/
-	font-size:1.2em;
+	font-size: 1.2em;
 	font-weight: 300;
 	color:white;
-	padding:1.3em 0em 1em 0em;
 	display: inline;
 	padding-left: 0.7em;
 	/*letter-spacing: 0.02em;*/
@@ -160,25 +181,8 @@ body {
 .infoHover:hover .hoverText {
 	visibility: visible;
 }
-/* SETTINGS */
 
-.settings  {
-
-	width: 5%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-}
-
-.settings img {
-
-	height: 2em;
-	filter: invert(10);
-	opacity: 0.8;
-	
-}
-
-/* DIV INFO */
+/*-------------- DIV INFO --------------*/
 
 .divInfo {
 
@@ -220,16 +224,22 @@ body {
 }
 
 
-/*-------------------- INDEX ADMIN --------------------*/
-header {
+/*---------------------------------------- INDEX ADMIN ----------------------------------------*/
 
-	background-color: black;
-	display:flex;
-	color:white;
-
-}
+/*-------------- HEADER --------------*/
 
 .headerAdmin {
+
+	background-color: black;
+	font-family: 'Capriola', sans-serif;
+}
+
+.headerAdmin span {
+
+	font-family: 'Capriola', sans-serif;
+}
+
+.divsAdmin {
 
 	font-size: 1.2em;
     font-weight: 300;
@@ -237,8 +247,27 @@ header {
     padding: 1.3em 0em 1em 0em;
 	padding-left: 0.7em;
 	font-family: 'Capriola', sans-serif;
-	width: 33%;
+	display: inline-block;
 }
+
+.cont {
+
+	width: 32%;
+}
+
+.cont:nth-child(2n) {
+
+	text-align: center;
+	font-weight: 900;
+	font-size: 1.3em;
+}
+
+.cont:nth-child(3n) {
+
+	text-align: right;
+}
+
+/*-------------- LISTADO --------------*/
 
 #inner {
 
@@ -249,28 +278,37 @@ header {
 
 .item {
 
-	width: 50%;
-	margin: 0 auto;
-	display: flex;
-	padding-bottom:3em;
+	width: 35%;
+    margin: 0 auto;
+    display: flex;
+    padding: 2em 1em 2em 1em;
+    font-family: 'Roboto', sans-serif;
+	border-radius: 1em;	
+}
+
+.item:hover{
+
+	background-color: rgb(226, 226, 226);
+	box-shadow: 0.2em 0.25em rgba(218, 218, 218, 0.85);
 }
 
 .dashboardElements {
 
-	font-weight: 700;
-	font-size:1.2em;
+	font-weight: 500;
+	font-size:1.1em;
 }
 
 .listado_content {
 
-	width:50%;
-	font-family: 'Capriola', sans-serif;
+	width:50%;	
 }
+
+/*-------------- BTNS --------------*/
 
 #btn-agregar-wrapper {
 
 	padding: 4em 0 3em 0;
-    width: 25%;
+    width: 22%;
     margin: 0 auto;
     text-align: right;
 }
@@ -284,15 +322,16 @@ header {
 
 	border-radius: 0.5em;
     text-decoration: none;
-    font-family: 'Capriola', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: white;
-    font-size: 1.2em;
-    padding: 0.5em 0.7em 0.5em 0.7em;
+    font-size: 1.1em;
+	padding: 0.5em 1em 0.5em 1em;
+	font-weight: 400;
 }
 
 .btn:hover {
 
-	opacity: 0.8;
+	opacity: 0.85;
 }
 
 .verde {
@@ -310,6 +349,34 @@ header {
 	background-color: rgb(82, 95, 255);
 }
 
+/*-------------- FORM --------------*/
+
+#form_wrapper {
+
+	margin: 0 auto;
+	width: 50%;
+	font-family: 'Roboto', sans-serif;
+	padding-top: 5em;
+}
+
+#formL {
+
+	width:45%;
+	display:inline-block;
+	padding: 0 0 2em 0;
+}
+
+#formR {
+
+	width:45%;
+	display:inline-block;
+	padding: 0 0 2em 0;
+}
+
+.inputDiv {
+
+	display:block;
+}
 
 #form_main {
 	display: none;
@@ -317,4 +384,10 @@ header {
 
 #form_main.active {
 	display: block;
+}
+
+#btnForm {
+
+	display: block;
+    padding: 1em 5em 1em 5em;
 }
