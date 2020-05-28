@@ -12,8 +12,9 @@ const $form_field_delivery = document.querySelector('#form_field_delivery');
 const $form_field_redes = document.querySelector('#form_field_redes');
 const $form_field_id = document.querySelector('#form_field_id');
 const $form_main = document.querySelector('#form_main');
+const $add_button = document.querySelector('.handleAdd');
 
-
+//READ;
 const getTiendas = async (id = '') => {
     const result = await api.getTiendas();
     console.log(result);
@@ -33,14 +34,13 @@ const getTiendas = async (id = '') => {
             element.addEventListener('click', handleClickEdit)
         });
 
-    } else { //Cuando la llamo con un id desde edit. Para hacer una busqueda x id;
+    } else { //Cuando la llamo con un id desde Editar. Para hacer una busqueda por id;
         const elementById = result.find((el) => id == el._id);
         return elementById;
     }
 }
 
 const dataRow = props => {
-
     const { _id, lat, lng, name, veg, type, description, number, horarioAtencion, delivery, redes } = props
     return `
         <div class="item">
@@ -57,9 +57,9 @@ const dataRow = props => {
 
 }
 
-
-
 getTiendas(); //Llamo a la funcion cuando carga la pag;
+
+//CRUD;
 
 //DELETE;
 const deleteTienda = async (id) => {
@@ -81,11 +81,12 @@ const updateTienda = async (data,id) => {
 const handleClickEdit = async () => {
     const id = event.target.dataset.id;
     const reg = await getTiendas(id);
+    $form_main.classList.add("active");
     completeForm(reg);
 }
 const completeForm = (reg) => {
     const {_id, lat, lng, name, veg, type, description, number, horarioAtencion, delivery, redes } = reg;
-    $form_field_id.value= id;
+    $form_field_id.value= _id;
     $form_field_lat.value = lat;
     $form_field_lng.value = lng;
     $form_field_name.value = name;
@@ -99,11 +100,22 @@ const completeForm = (reg) => {
 }
 
 //CREATE;
+/*en update pasaba el id, para create la url no necesita id, entonces solo pasa formData y va a ser el objeto que va a tomar como body.*/
 const createTienda = async (data) => {
-    const result = await api.createTIendas(data);
+    const result = await api.createTienda(data);
     console.log('Created', result);
     getTiendas();
 }
+
+const handleClickAdd = (event) => {
+    event.preventDefault();
+    $form_field_id.value = '';
+    $form_main.reset();
+    $form_main.classList.add("active");
+    $form_field_lat.focus();
+}
+
+$add_button.addEventListener('click', handleClickAdd);
 
 //FORM (Update o Create);
 $form_main.addEventListener('submit', (event) => {
@@ -119,8 +131,18 @@ $form_main.addEventListener('submit', (event) => {
         "number": $form_field_number.value,
         "horarioAtencio": $form_field_horarioAtencion.value,
         "delivery": $form_field_delivery.value,
-        "redes": $form_field_redes.value,
-        "id": $form_field_id.value
+        "redes": $form_field_redes.value
     }
-    updateTienda(formData,id);
+    $form_main.classList.remove("active");
+    console.log("Mi ID es ", id);
+    if ( id === '') {
+        createTienda(formData);
+    } else {
+        updateTienda(formData,id);
+    }
+
+    //Reseteo el form;
+    $form_field_id.value = '';
+    $form_main.reset();
+    
 });

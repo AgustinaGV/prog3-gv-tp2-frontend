@@ -1,4 +1,5 @@
-const baseUrl = 'http://localhost:3000/'
+const baseUrl = 'http://localhost:3000/';
+//const baseUrl = 'https://prog3-gv-tp2-backend.now.sh/';
 
 const apiHeaders = {
     'Content-Type': 'application/json',
@@ -17,10 +18,25 @@ const fetchParams = (method, data = '') => {
 }
 
 const api = {
+    //Funciones CRUD;
 
-    //GET;
+    //CREATE;
+    createTienda: async formData => {
+        const dataResponse = await fetch(baseUrl + 'tiendas', fetchParams ('POST', formData));
+        const dataInfo = await dataResponse.json();
+        return dataInfo;
+    },
+
+    //READ;
     getTiendas: async () => {
         const dataResponse = await fetch(baseUrl + 'tiendas', fetchParams('GET'));
+        const dataInfo = await dataResponse.json();
+        return dataInfo;
+    },
+
+    //UPDATE;
+    updateTiendas: async (formData, id) => {
+        const dataResponse = await fetch(baseUrl + 'tiendas/'+ id, fetchParams('PUT', formData));
         const dataInfo = await dataResponse.json();
         return dataInfo;
     },
@@ -31,8 +47,4 @@ const api = {
         const dataInfo = await dataResponse.json();
         return dataInfo;
     }
-
-    //PUT;
-
-    //POST;
 }

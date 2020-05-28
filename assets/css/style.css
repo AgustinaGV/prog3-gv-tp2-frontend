@@ -267,6 +267,14 @@ header {
 	font-family: 'Capriola', sans-serif;
 }
 
+#btn-agregar-wrapper {
+
+	padding: 4em 0 3em 0;
+    width: 25%;
+    margin: 0 auto;
+    text-align: right;
+}
+
 .btns_wrapper {
 
 	width: 50%;
@@ -296,4 +304,17 @@ header {
 
 	background-color: tomato;
 	margin-left: 2em;
+}
+
+.azul {
+	background-color: rgb(82, 95, 255);
+}
+
+
+#form_main {
+	display: none;
+}
+
+#form_main.active {
+	display: block;
 }
