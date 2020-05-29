@@ -379,10 +379,11 @@ body {
 .labels {
 
 	font-size: 1em;
-    padding-bottom: 0.3em;
+    padding-bottom: 0.5em;
     display: block;
     font-weight: 500;
 }
+
 
 #form_main {
 	display: none;
@@ -398,7 +399,38 @@ body {
 
 #btnForm {
 
-	display: block;
+	border: none;
+    font-size: 1.1em;
+    display: block;
     padding: 1em 5em 1em 5em;
+    margin: 0 auto;
+    border-radius: 1em;
+    background-color: rgb(125, 156, 219);
+    font-weight: 400;
+    color: white;
 }
 
+#btnForm:hover {
+
+	opacity:0.8;
+}
+
+/* INPUTS */
+
+.inputForm {
+
+	color: rgba(0, 0, 41, 0.6);
+	font-weight: 500;
+	font-size: 0.9em;
+	border: none;
+	border-bottom: 2px solid rgba(71, 91, 107, 0.8);
+	background-color: rgb(226, 226, 226);
+}
+
+.inputForm:focus {
+
+	outline: none;
+	color: rgb(62, 70, 82);
+	border-bottom: 2px solid rgb(71, 152, 218);
+	font-weight: 600;
+}
