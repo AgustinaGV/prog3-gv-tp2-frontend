@@ -1,25 +1,28 @@
 //Elementos del DOM;
 const $listado = document.querySelector('#listado');
-const $form_field_lat = document.querySelector('#form_field_lat');
-const $form_field_lng = document.querySelector('#form_field_lng');
 const $form_field_name = document.querySelector('#form_field_name');
 const $form_field_veg = document.querySelector('#form_field_veg');
 const $form_field_type = document.querySelector('#form_field_type');
 const $form_field_description = document.querySelector('#form_field_description');
+const $form_field_lat = document.querySelector('#form_field_lat');
+const $form_field_lng = document.querySelector('#form_field_lng');
 const $form_field_number = document.querySelector('#form_field_number');
+const $form_field_redes = document.querySelector('#form_field_redes');
 const $form_field_horarioAtencion = document.querySelector('#form_field_horarioAtencion');
 const $form_field_delivery = document.querySelector('#form_field_delivery');
-const $form_field_redes = document.querySelector('#form_field_redes');
 const $form_field_id = document.querySelector('#form_field_id');
 const $form_main = document.querySelector('#form_main');
 const $add_button = document.querySelector('.handleAdd');
 
 //READ;
-const getTiendas = async (id = '') => {
+const getTiendas = async (id = "") => {
     const result = await api.getTiendas();
     console.log(result);
-    if (id == '') { //Cuando la llama el document ready;
-        $listado.innherHTML = '';
+    if (id == "") { //Cuando la llama el document ready;
+        // va eliminando uno por uno si encuentra un elemento 'hijo' de $listado;
+        while($listado.firstChild){
+            $listado.removeChild($listado.firstChild);
+        }
         result.forEach(element => {
             $listado.innerHTML += dataRow(element)
         });
@@ -112,7 +115,7 @@ const handleClickAdd = (event) => {
     $form_field_id.value = '';
     $form_main.reset();
     $form_main.classList.add("active");
-    $form_field_lat.focus();
+    $form_field_name.focus();
 }
 
 $add_button.addEventListener('click', handleClickAdd);
@@ -129,7 +132,7 @@ $form_main.addEventListener('submit', (event) => {
         "type": $form_field_type.value,
         "description": $form_field_description.value,
         "number": $form_field_number.value,
-        "horarioAtencio": $form_field_horarioAtencion.value,
+        "horarioAtencion": $form_field_horarioAtencion.value,
         "delivery": $form_field_delivery.value,
         "redes": $form_field_redes.value
     }
