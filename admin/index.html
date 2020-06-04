@@ -30,84 +30,89 @@
 
     <div id="wrapper">
         <div id="inner">
-            <div id="form_wrapper">
-                <form id="form_main">
+            <div id="formContainer">
+                <div id="form_wrapper">
+                    <form id="form_main">
 
-                    <div class="generales sectionForm">
-                        <span class="titleSectionForm">Generales</span>
-                        <div class="inputDiv">
-                            <label for="form_field_name" class="labels">Nombre</label>
-                            <input id="form_field_name" type="text" name="name" class="inputForm" maxlength="30" size="20" required spellcheck="false">
+                        <button id="closeForm">X</button>
+
+                        <div class="generales sectionForm">
+                            <span class="titleSectionForm">Generales</span>
+                            <div class="inputDiv">
+                                <label for="form_field_name" class="labels">Nombre</label>
+                                <input id="form_field_name" type="text" name="name" class="inputForm" maxlength="30" size="20" required spellcheck="false">
+                            </div>
+
+                            <div class="inputDiv">
+                                <label for="form_field_veg" class="labels">Veggie/Vegan</label>
+                                <select id="form_field_veg" type="text" name="veg" class="inputForm select" form="form_main" required spellcheck="false">
+                                    <option value="vegan">Vegan</option>
+                                    <option value="veggie">Veggie</option>
+                                </select>
+                            </div>
+
+                            <div class="inputDiv">
+                                <label for="form_field_type" class="labels">Tipo</label>
+                                <select id="form_field_type" type="text" name="type" class="inputForm select" form="form_main" required>
+                                    <option value="general">General</option>
+                                    <option value="supermercado">Supermercado</option>
+                                    <option value="panaderia">Panaderia</option>
+                                    <option value="hamburguesas">Hamburguesas</option>
+                                    <option value="vegetales">Vegetales</option>
+                                </select>
+                            </div>
+
+                            <div class="inputDiv">
+                                <label for="form_field_description" class="labels">Descripción</label>
+                                <textarea id="form_field_description" rows="3" cols="60" name="description" form="form_main" required spellcheck="false">
+                                </textarea>
+                            </div>
                         </div>
 
-                        <div class="inputDiv">
-                            <label for="form_field_veg" class="labels">Veggie/Vegan</label>
-                            <select id="form_field_veg" type="text" name="veg" class="inputForm" form="form_main" required spellcheck="false">
-                                <option value="vegan">Vegan</option>
-                                <option value="veggie">Veggie</option>
-                            </select>
+                        <div class="ubicacion sectionForm">
+                            <span class="titleSectionForm">Ubicación</span>
+                            <div class="inputDiv">
+                                <label for="form_field_lat" class="labels">Lat</label>
+                                <input id="form_field_lat" type="text" name="lat" class="inputForm" size="10" required spellcheck="false">
+                            </div>
+
+                            <div class="inputDiv">
+                                <label for="form_field_lng" class="labels">Lng</label>
+                                <input id="form_field_lng" type="text" name="lng" class="inputForm" size="10" required spellcheck="false">
+                            </div>
                         </div>
 
-                        <div class="inputDiv">
-                            <label for="form_field_type" class="labels">Tipo</label>
-                            <select id="form_field_type" type="text" name="type" class="inputForm" form="form_main" required>
-                                <option value="general">General</option>
-                                <option value="supermercado">Supermercado</option>
-                                <option value="panaderia">Panaderia</option>
-                                <option value="hamburguesas">Hamburguesas</option>
-                                <option value="vegetales">Vegetales</option>
-                            </select>
+                        <div class="contacto sectionForm">
+                            <span class="titleSectionForm">Contacto</span>
+                            <div class="inputDiv">
+                                <label for="form_field_number" class="labels">Teléfono</label>
+                                <input id="form_field_number" type="text" name="number" class="inputForm" maxlength="12" size="12" spellcheck="false">
+                            </div>
+
+                            <div class="inputDiv">
+                                <label for="form_field_redes" class="labels">Redes</label>
+                                <input id="form_field_redes" type="text" name="redes" class="inputForm" maxlength="30" size="20" spellcheck="false">
+                            </div>
+
+                            <div class="inputDiv">
+                                <label for="form_field_horarioAtencion" class="labels">Horario de Atención</label>
+                                <input id="form_field_horarioAtencion" type="text" name="horarioAtencion" class="inputForm" spellcheck="false">
+                            </div>
+
+                            <div class="inputDiv">
+                                <label for="form_field_delivery" class="labels">Delivery</label>
+                                <select id="form_field_delivery" type="text" name="delivery" class="inputForm select" form="form_main" required>
+                                    <option value="si">Si</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="inputDiv">
-                            <label for="form_field_description" class="labels">Descripción</label>
-                            <input id="form_field_description" type="text" name="description" class="inputForm" maxlength="300" size="40" required spellcheck="false">
-                        </div>
-                    </div>
+                        <input id="form_field_id" type="hidden" name="id">
 
-                    <div class="ubicacion sectionForm">
-                        <span class="titleSectionForm">Ubicación</span>
-                        <div class="inputDiv">
-                            <label for="form_field_lat" class="labels">Lat</label>
-                            <input id="form_field_lat" type="text" name="lat" class="inputForm" size="10" required spellcheck="false">
-                        </div>
-
-                        <div class="inputDiv">
-                            <label for="form_field_lng" class="labels">Lng</label>
-                            <input id="form_field_lng" type="text" name="lng" class="inputForm" size="10" required spellcheck="false">
-                        </div>
-                    </div>
-
-                    <div class="contacto sectionForm">
-                        <span class="titleSectionForm">Contacto</span>
-                        <div class="inputDiv">
-                            <label for="form_field_number" class="labels">Teléfono</label>
-                            <input id="form_field_number" type="text" name="number" class="inputForm" maxlength="12" size="12" spellcheck="false">
-                        </div>
-
-                        <div class="inputDiv">
-                            <label for="form_field_redes" class="labels">Redes</label>
-                            <input id="form_field_redes" type="text" name="redes" class="inputForm" maxlength="30" size="20" spellcheck="false">
-                        </div>
-
-                        <div class="inputDiv">
-                            <label for="form_field_horarioAtencion" class="labels">Horario de Atención</label>
-                            <input id="form_field_horarioAtencion" type="text" name="horarioAtencion" class="inputForm" spellcheck="false">
-                        </div>
-
-                        <div class="inputDiv">
-                            <label for="form_field_delivery" class="labels">Delivery</label>
-                            <select id="form_field_delivery" type="text" name="delivery" class="inputForm" form="form_main" required>
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <input id="form_field_id" type="hidden" name="id">
-
-                    <button class="form_submit" class="btn azul" type="submit" id="btnForm">Enviar</button>
-                </form>
+                        <button class="form_submit" class="btn azul" type="submit" id="btnForm">Enviar</button>
+                    </form>
+                </div>
             </div>
             <div id="btn-agregar-wrapper">
                 <a href="#" class="btn azul handleAdd">Agregar emprendimiento</a>

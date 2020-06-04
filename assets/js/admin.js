@@ -12,6 +12,8 @@ const $form_field_horarioAtencion = document.querySelector('#form_field_horarioA
 const $form_field_delivery = document.querySelector('#form_field_delivery');
 const $form_field_id = document.querySelector('#form_field_id');
 const $form_main = document.querySelector('#form_main');
+const $form_container_form = document.querySelector('#formContainer');
+const $close_form_button = document.querySelector('#closeForm');
 const $add_button = document.querySelector('.handleAdd');
 
 //READ;
@@ -85,6 +87,7 @@ const handleClickEdit = async () => {
     const id = event.target.dataset.id;
     const reg = await getTiendas(id);
     $form_main.classList.add("active");
+    $form_container_form.classList.add("active");
     completeForm(reg);
 }
 const completeForm = (reg) => {
@@ -115,6 +118,7 @@ const handleClickAdd = (event) => {
     $form_field_id.value = '';
     $form_main.reset();
     $form_main.classList.add("active");
+    $form_container_form.classList.add("active");
     $form_field_name.focus();
 }
 
@@ -137,6 +141,7 @@ $form_main.addEventListener('submit', (event) => {
         "redes": $form_field_redes.value
     }
     $form_main.classList.remove("active");
+    $form_container_form.classList.remove("active");
     console.log("Mi ID es ", id);
     if ( id === '') {
         createTienda(formData);
@@ -149,3 +154,13 @@ $form_main.addEventListener('submit', (event) => {
     $form_main.reset();
     
 });
+
+/* CERRAR FORM */
+
+const closeForm = () => {
+
+    $form_main.classList.remove("active");
+    $form_container_form.classList.remove("active");
+}
+
+$close_form_button.addEventListener('click', closeForm);

@@ -145,7 +145,6 @@ body {
 	padding: 0em 1em 0em 0.5em;
 	opacity: 0.7;
 	width: 2em;
-	filter:saturate(1.5);
 }
 
 #menu a img:hover {
@@ -226,6 +225,13 @@ body {
 
 /*---------------------------------------- INDEX ADMIN ----------------------------------------*/
 
+/*-------------- BODY --------------*/
+
+#adminBody {
+
+	position: relative;
+}
+
 /*-------------- HEADER --------------*/
 
 .headerAdmin {
@@ -241,7 +247,7 @@ body {
 
 .divsAdmin {
 
-	font-size: 1.2em;
+	font-size: 1.1em;
     font-weight: 300;
     color: white;
     padding: 1.3em 0em 1em 0em;
@@ -271,8 +277,8 @@ body {
 
 #inner {
 
-	width: 95%;
-	margin:0 auto;
+	width: 100%;
+	margin: 0 auto;
 }
 
 
@@ -289,7 +295,6 @@ body {
 .item:hover{
 
 	background-color: rgb(226, 226, 226);
-	box-shadow: 0.2em 0.25em rgba(218, 218, 218, 0.85);
 }
 
 .dashboardElements {
@@ -351,23 +356,45 @@ body {
 
 /*-------------- FORM --------------*/
 
+#formContainer {
+
+	width: 100%;
+	height: 100%;
+    position: absolute;
+    margin: 0 auto;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: none;
+}
+
+#formContainer.active {
+
+	display: block;
+}
+
 #form_wrapper {
 
 	margin: 0 auto;
 	width: 35%;
 	font-family: 'Roboto', sans-serif;
-	padding-top: 2em;
+	padding-top: 5em;
 }
 
 .inputDiv {
 
 	display:block;
-	padding-top: 0.5em;
+	padding: 1em 0 0 0;
 }
 
 .sectionForm {
 
-	padding-bottom:2em;
+	width: 90%;
+    padding-bottom: 2em;
+    margin: 0 auto;
+}
+
+.sectionForm:first-of-type{
+
+	padding-top:2.5em;
 }
 
 .titleSectionForm {
@@ -388,7 +415,6 @@ body {
 #form_main {
 	display: none;
 	background-color: rgb(226, 226, 226);
-	box-shadow: 0.5em 0.5em rgba(209, 209, 209, 0.85);
 	padding: 1em;
 	border-radius: 1em;
 }
@@ -405,7 +431,8 @@ body {
     padding: 1em 5em 1em 5em;
     margin: 0 auto;
     border-radius: 1em;
-    background-color: rgb(125, 156, 219);
+	background-color: black;
+	opacity: 1;
     font-weight: 400;
     color: white;
 }
@@ -434,3 +461,56 @@ body {
 	border-bottom: 2px solid rgb(71, 152, 218);
 	font-weight: 600;
 }
+
+.select {
+
+	font-family: 'Roboto', sans-serif;
+	color: rgba(0, 0, 41, 0.6);
+	font-weight: 500;
+	font-size: 0.9em;
+
+}
+
+.select option {
+
+	background-color: rgb(226, 226, 226);
+}
+
+form textarea {
+
+	border: 2px solid rgba(71, 91, 107, 0.8);
+	background-color: rgb(226, 226, 226);
+	font-family: 'Roboto', sans-serif;
+	color: rgba(0, 0, 41, 0.6);
+	font-weight: 500;
+	font-size: 0.9em;
+	resize: none;
+}
+
+form textarea:focus {
+
+	border: 2px solid rgb(71, 152, 218);
+	font-weight: 600;
+	color: rgb(62, 70, 82);
+	outline:none;
+}
+
+/* BTN CERRAR FORM */
+ 
+#closeForm {
+
+	background-color: black;
+    border-radius: 0.9em;
+    padding: 0.5em 0.8em 0.5em 0.8em;
+    border-color: none;
+    border: none;
+    color: white;
+	font-weight: 900;
+	float: right;
+ }
+
+ #closeForm:hover {
+
+	opacity: 0.8;
+	cursor:pointer;
+ }
