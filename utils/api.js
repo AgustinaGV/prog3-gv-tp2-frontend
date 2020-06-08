@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:3000/';
-//const baseUrl = 'https://prog3-gv-tp2-backend.now.sh/';
+//const baseUrl = 'http://localhost:3000/';
+const baseUrl = 'https://prog3-gv-tp2-backend.now.sh/';
 
 const apiHeaders = {
     'Content-Type': 'application/json',
